@@ -1,21 +1,21 @@
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class InimigoManager : MonoBehaviour
 {
     public Animator animator;
-    private MovimentoPlayer movimentoPlayer;
+    private MovimentoInimigo movimentoInimigo;
     public float velocidadeDaAnimacao = 1;
     
     void Start()
     {
-        movimentoPlayer = GetComponent<MovimentoPlayer>();
+        movimentoInimigo = GetComponent<MovimentoInimigo>();
     }
    void Update()
     {
-      animator.SetBool("Andando", movimentoPlayer.andando);
+      animator.SetBool("Andando", movimentoInimigo.andando);
       animator.speed = velocidadeDaAnimacao;
 
-      if (Input.GetKeyDown(KeyCode.Space))
+      if (movimentoInimigo.ataque == true)
       {
           animator.SetTrigger("Ataque");  
       }
